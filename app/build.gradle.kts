@@ -59,4 +59,9 @@ dependencies {
 
     implementation("androidx.compose.material:material-icons-extended:1.7.8")
 
+    //App compat
+    implementation ("androidx.appcompat:appcompat:1.7.1")
+
+
+
 }
