@@ -21,6 +21,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
@@ -84,7 +85,9 @@ fun SignInScreen() {
             Text(
                 buildAnnotatedString {
                     append("Welcome back to ")
-                    withStyle(style = SpanStyle(color = Color(0xFF00C897), fontWeight = FontWeight.Bold)) {
+                    withStyle(style = SpanStyle(
+                        color = MaterialTheme.colorScheme.primary,
+                        fontWeight = FontWeight.Bold)) {
                         append("Habit")
                     }
                     append("+")
@@ -146,7 +149,7 @@ fun SignInScreen() {
                     .height(45.dp),
                 shape = RoundedCornerShape(4.dp),
                 colors = ButtonColors(
-                    containerColor = Color(0xFF0CBC8B),
+                    containerColor = MaterialTheme.colorScheme.primary,
                     contentColor = Color.White,
                     disabledContainerColor = Color.White,
                     disabledContentColor = Color.White)
@@ -177,7 +180,8 @@ fun SignInScreen() {
                 )
                 Spacer(modifier = Modifier.width(8.dp))
                 Text("SignIn with Google",
-                    color = Color(0xFF00C897))
+                    color = MaterialTheme.colorScheme.primary
+                )
             }
         }
 
@@ -189,9 +193,9 @@ fun SignInScreen() {
             Text("Already have an account? ")
             Text(
                 text = "Get in now!",
-                color = Color(0xFF00C897),
+                color = MaterialTheme.colorScheme.primary,
                 fontWeight = FontWeight.Bold,
-                modifier = Modifier.clickable { /* Handle login navigation */ }
+                modifier = Modifier.clickable { }
             )
         }
     }
