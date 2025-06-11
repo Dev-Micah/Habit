@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
 
+    id("com.google.devtools.ksp")
     id("org.jetbrains.kotlin.plugin.serialization") version "2.1.20"
 }
 
@@ -70,14 +71,15 @@ dependencies {
     //Serialization
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.3")
 
+    //Room
+    implementation("androidx.room:room-runtime:2.7.1")
+    implementation("androidx.room:room-ktx:2.5.7")
+    ksp("androidx.room:room-compiler:2.7.1")
+
     //Koin
     implementation(libs.koin.core)
     implementation(libs.koin.android)
     implementation(libs.koin.androidx.compose)
     testImplementation(libs.koin.test)
-
-
-
-
 
 }
