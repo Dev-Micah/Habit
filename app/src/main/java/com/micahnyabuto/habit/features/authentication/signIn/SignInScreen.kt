@@ -37,10 +37,14 @@ import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.micahnyabuto.habit.R
+import com.micahnyabuto.habit.navigation.Destinations
 
 @Composable
-fun SignInScreen() {
+fun SignInScreen(
+    navController: NavController
+) {
 
 
     Column(
@@ -48,22 +52,10 @@ fun SignInScreen() {
             .fillMaxSize()
             .padding(bottom = 70.dp,
                 start = 16.dp,
-                end = 16.dp),
+                end = 16.dp,
+            top =50.dp),
         verticalArrangement = Arrangement.SpaceBetween
     ) {
-
-        Row(
-            modifier = Modifier.fillMaxWidth()
-                .padding(top = 40.dp),
-            horizontalArrangement = Arrangement.End
-        ) {
-            Text(
-                text = "SKIP",
-                color = Color.Red,
-                fontWeight = FontWeight.Bold,
-                modifier = Modifier.clickable { }
-            )
-        }
 
 
         Column(
@@ -125,19 +117,7 @@ fun SignInScreen() {
                 },
                 modifier = Modifier.fillMaxWidth()
             )
-            OutlinedTextField(
-                value = "",
-                onValueChange = { },
-                label = { Text("Confirm Password") },
-                trailingIcon = {
 
-                    IconButton(onClick = { }) {
-                        Icon(Icons.Default.Visibility, contentDescription = "Show password")
-                    }
-
-                },
-                modifier = Modifier.fillMaxWidth()
-            )
 
             Spacer(modifier = Modifier.height(16.dp))
 
@@ -190,12 +170,12 @@ fun SignInScreen() {
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.Center
         ) {
-            Text("Already have an account? ")
+            Text("Don't have an account? ")
             Text(
-                text = "Get in now!",
+                text = "Register",
                 color = MaterialTheme.colorScheme.primary,
                 fontWeight = FontWeight.Bold,
-                modifier = Modifier.clickable { }
+                modifier = Modifier.clickable {navController.navigate(Destinations.SignUp) }
             )
         }
     }
