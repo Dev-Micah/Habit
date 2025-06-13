@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.micahnyabuto.habit" />
+                  <option name="mobileSdkAppId" value="1:822562946606:android:d7b15a7d0f34c4966ea9bf" />
+                  <option name="projectId" value="habits-3a1e5" />
+                  <option name="projectNumber" value="822562946606" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />
