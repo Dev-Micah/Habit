@@ -15,10 +15,12 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
+import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
@@ -34,11 +36,14 @@ import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.micahnyabuto.habit.R
+import com.micahnyabuto.habit.navigation.Destinations
 
 @Composable
-fun SignUpScreen() {
-
+fun SignUpScreen(
+    navController: NavController
+) {
 
     Column(
         modifier = Modifier
@@ -58,7 +63,7 @@ fun SignUpScreen() {
                 text = "SKIP",
                 color = Color.Red,
                 fontWeight = FontWeight.Bold,
-                modifier = Modifier.clickable { }
+                modifier = Modifier.clickable { navController.navigate(Destinations.Home)}
             )
         }
 
@@ -102,6 +107,19 @@ fun SignUpScreen() {
                         IconButton(onClick = { }) {
                             Icon(Icons.Default.Close, contentDescription = "Clear email")
                         }
+
+                },
+                modifier = Modifier.fillMaxWidth()
+            )
+            OutlinedTextField(
+                value = "",
+                onValueChange = { },
+                label = { Text("Password") },
+                trailingIcon = {
+
+                    IconButton(onClick = { }) {
+                        Icon(Icons.Default.Visibility, contentDescription = "Show password")
+                    }
 
                 },
                 modifier = Modifier.fillMaxWidth()
@@ -158,10 +176,10 @@ fun SignUpScreen() {
         ) {
             Text("Already have an account? ")
             Text(
-                text = "Get in now!",
-                color = Color.Blue,
+                text = "Login",
+                color = MaterialTheme.colorScheme.primary,
                 fontWeight = FontWeight.Bold,
-                modifier = Modifier.clickable { /* Handle login navigation */ }
+                modifier = Modifier.clickable { navController.navigate(Destinations.SignIn) }
             )
         }
     }
