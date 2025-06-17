@@ -1,4 +1,4 @@
-package com.micahnyabuto.habit.data.local
+package com.micahnyabuto.habit.core.data.local
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

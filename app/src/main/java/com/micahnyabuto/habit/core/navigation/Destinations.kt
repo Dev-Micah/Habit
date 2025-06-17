@@ -1,4 +1,4 @@
-package com.micahnyabuto.habit.navigation
+package com.micahnyabuto.habit.core.navigation
 
 import kotlinx.serialization.Serializable
 
