@@ -1,4 +1,4 @@
-package com.micahnyabuto.habit.data.local
+package com.micahnyabuto.habit.core.data.local
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
