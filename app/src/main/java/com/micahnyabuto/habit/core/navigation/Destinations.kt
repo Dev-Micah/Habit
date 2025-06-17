@@ -11,4 +11,15 @@ sealed class Destinations {
 
     @Serializable
     object Home
+
+    @Serializable
+    object Activity
+
+    @Serializable
+    object AskAi
+
+    @Serializable
+    object Profile
+
+
 }
