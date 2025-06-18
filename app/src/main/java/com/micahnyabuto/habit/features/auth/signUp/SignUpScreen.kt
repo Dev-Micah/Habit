@@ -104,7 +104,7 @@ fun SignUpScreen(
                 trailingIcon = {
 
                         IconButton(onClick = { }) {
-                            Icon(Icons.Default.Close, contentDescription = "Clear email")
+                            Icon(Icons.Default.Visibility, contentDescription = "Show email")
                         }
 
                 },
