@@ -1,4 +1,4 @@
-package com.micahnyabuto.habit.features.authentication.signUp
+package com.micahnyabuto.habit.features.auth.signUp
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
