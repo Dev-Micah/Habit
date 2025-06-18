@@ -8,12 +8,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
+import com.micahnyabuto.habit.features.home.component.HomeTopBar
 import com.micahnyabuto.habit.utils.Greeting
 import java.util.Calendar
 
 @Composable
 fun HomeScreen(){
-Greeting()
+    HomeTopBar()
 }
 
 @Composable
