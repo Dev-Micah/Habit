@@ -62,7 +62,7 @@ fun SignInScreen(
         ) {
 
             Image(
-                painter = painterResource(id = R.drawable.illustration), // Replace with your image resource
+                painter = painterResource(id = R.drawable.illustration),
                 contentDescription = null,
                 modifier = Modifier
                     .height(200.dp)
