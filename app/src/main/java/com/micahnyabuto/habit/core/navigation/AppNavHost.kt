@@ -5,8 +5,8 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.micahnyabuto.habit.features.authentication.signIn.SignInScreen
-import com.micahnyabuto.habit.features.authentication.signUp.SignUpScreen
+import com.micahnyabuto.habit.features.auth.signIn.SignInScreen
+import com.micahnyabuto.habit.features.auth.signUp.SignUpScreen
 import com.micahnyabuto.habit.features.home.HomeScreen
 
 @Composable
