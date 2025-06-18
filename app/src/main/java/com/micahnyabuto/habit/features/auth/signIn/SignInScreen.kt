@@ -1,4 +1,4 @@
-package com.micahnyabuto.habit.features.authentication.signIn
+package com.micahnyabuto.habit.features.auth.signIn
 
 
 import androidx.compose.foundation.Image
@@ -51,7 +51,7 @@ fun SignInScreen(
             .padding(bottom = 70.dp,
                 start = 16.dp,
                 end = 16.dp,
-            top =50.dp),
+            top =60.dp),
         verticalArrangement = Arrangement.SpaceBetween
     ) {
 
