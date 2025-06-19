@@ -1,6 +1,10 @@
 package com.micahnyabuto.habit.features.auth.signIn
 
 
+import android.app.Activity.RESULT_OK
+import android.widget.Toast
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -25,9 +29,11 @@ import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
@@ -38,11 +44,33 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.micahnyabuto.habit.R
 import com.micahnyabuto.habit.core.navigation.Destinations
+import com.micahnyabuto.habit.core.navigation.Destinations.Activity
+import com.micahnyabuto.habit.features.auth.googleSignin.GoogleAuthClient
 
 @Composable
 fun SignInScreen(
     navController: NavController
 ) {
+    val context = LocalContext.current
+    val authClient = remember { GoogleAuthClient(context) }
+
+    val launcher = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.StartIntentSenderForResult()
+    ) { result ->
+        if (result.resultCode == RESULT_OK) {
+            authClient.handleResult(
+                intent = result.data,
+                onSuccess = {
+                    navController.navigate(Destinations.Home) {
+                        popUpTo(Destinations.SignIn) { inclusive = true }
+                    }
+                },
+                onError = {
+                    Toast.makeText(context, it, Toast.LENGTH_SHORT).show()
+                }
+            )
+        }
+    }
 
 
     Column(
@@ -144,7 +172,11 @@ fun SignInScreen(
 
 
             OutlinedButton(
-                onClick = {  },
+                onClick = {
+                    authClient.launch(launcher) {
+                        Toast.makeText(context, it, Toast.LENGTH_SHORT).show()
+                    }
+                },
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(50.dp),
@@ -152,7 +184,7 @@ fun SignInScreen(
                 shape = RoundedCornerShape(4.dp),
             ) {
                 Image(
-                    painter = painterResource(id = R.drawable.ic_google), // Replace with your Google icon
+                    painter = painterResource(id = R.drawable.ic_google),
                     contentDescription = "Google",
                     modifier = Modifier.size(20.dp)
                 )
