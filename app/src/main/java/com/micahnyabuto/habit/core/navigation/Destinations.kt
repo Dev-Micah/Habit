@@ -21,5 +21,4 @@ sealed class Destinations {
     @Serializable
     object Profile
 
-
 }
