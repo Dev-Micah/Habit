@@ -74,6 +74,10 @@ dependencies {
     //Navigation
     implementation("androidx.navigation:navigation-compose:2.9.0")
 
+    //coil
+    implementation("io.coil-kt:coil-compose:2.4.0")
+
+
     //Serialization
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.3")
 
