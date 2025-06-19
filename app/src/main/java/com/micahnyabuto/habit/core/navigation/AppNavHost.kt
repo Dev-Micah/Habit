@@ -5,6 +5,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.google.firebase.auth.FirebaseAuth
 import com.micahnyabuto.habit.features.auth.signIn.SignInScreen
 import com.micahnyabuto.habit.features.auth.signUp.SignUpScreen
 import com.micahnyabuto.habit.features.home.HomeScreen
@@ -14,9 +15,11 @@ fun AppNavHost(
     modifier: Modifier= Modifier,
     navController: NavHostController
 ){
+    val isLoggedIn = FirebaseAuth.getInstance().currentUser != null
+
     NavHost(
         modifier = Modifier,
-        startDestination = Destinations.SignIn,
+        startDestination = if (isLoggedIn) Destinations.Home else Destinations.SignIn,
         navController= navController
     ) {
         composable<Destinations.SignIn> {
