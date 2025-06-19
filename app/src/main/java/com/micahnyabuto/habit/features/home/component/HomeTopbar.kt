@@ -1,6 +1,8 @@
 package com.micahnyabuto.habit.features.home.component
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
@@ -16,16 +18,34 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ModifierLocalBeyondBoundsLayout
 import androidx.compose.ui.unit.dp
+import coil.compose.rememberAsyncImagePainter
+import com.google.firebase.auth.FirebaseAuth
 import com.micahnyabuto.habit.utils.Greeting
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeTopBar(){
+    val user = FirebaseAuth.getInstance().currentUser
+    val photoUrl = user?.photoUrl?.toString()
+
     Scaffold (
         topBar = {
             TopAppBar(
-                title = { Greeting()},
+                title = {
+                    Row {
+                      Text("Welcome, ${user?.displayName?.lowercase() ?: "User"}")
+                        }
+                        },
                 actions = {
+                    if (photoUrl != null) {
+                        Image(
+                            painter = rememberAsyncImagePainter(photoUrl),
+                            contentDescription = "Profile Picture",
+                            modifier = Modifier
+                                .size(40.dp)
+                                .clip(CircleShape)
+                        )
+                    } else {
                     Icon(
                         imageVector = Icons.Default.Person,
                         contentDescription = "Profile",
@@ -34,6 +54,7 @@ fun HomeTopBar(){
                             .clip(CircleShape)
                             .background(Color.LightGray)
                     )
+                }
                 }
             )
         }
