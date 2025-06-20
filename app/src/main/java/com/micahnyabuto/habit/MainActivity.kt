@@ -6,6 +6,8 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.navigation.compose.rememberNavController
 import com.micahnyabuto.habit.core.navigation.AppNavHost
+import com.micahnyabuto.habit.core.navigation.Destinations
+import com.micahnyabuto.habit.features.onboard.OnboardingScreen
 import com.micahnyabuto.habit.ui.theme.HabitTheme
 
 class MainActivity : ComponentActivity() {
@@ -16,7 +18,7 @@ class MainActivity : ComponentActivity() {
             HabitTheme {
                 val navController = rememberNavController()
                 AppNavHost(
-                    navController =navController
+                    navController=navController
                 )
             }
         }
