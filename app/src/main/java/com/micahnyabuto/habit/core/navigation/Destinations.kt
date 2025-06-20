@@ -4,6 +4,12 @@ import kotlinx.serialization.Serializable
 
 sealed class Destinations {
     @Serializable
+    object Onboard
+
+    @Serializable
+    object Splash
+
+    @Serializable
     object SignIn
 
     @Serializable

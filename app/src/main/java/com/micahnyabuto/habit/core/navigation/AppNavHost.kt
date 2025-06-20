@@ -9,6 +9,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.micahnyabuto.habit.features.auth.signIn.SignInScreen
 import com.micahnyabuto.habit.features.auth.signUp.SignUpScreen
 import com.micahnyabuto.habit.features.home.HomeScreen
+import com.micahnyabuto.habit.features.onboard.OnboardingScreen
 
 @Composable
 fun AppNavHost(
@@ -31,6 +32,18 @@ fun AppNavHost(
 
         composable <Destinations.Home>{
             HomeScreen()
+        }
+
+        composable <Destinations.Onboard>{
+            OnboardingScreen(
+                onSwiped = {
+                navController.navigate(Destinations.Home) {
+                    popUpTo(Destinations.Home){
+                        inclusive=true
+                    }
+                }
+                }
+            )
         }
     }
 
