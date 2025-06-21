@@ -22,7 +22,7 @@ sealed class Destinations {
     object Activity
 
     @Serializable
-    object AskAi
+    object Add
 
     @Serializable
     object Profile

@@ -1,6 +1,7 @@
 package com.micahnyabuto.habit.core.navigation
 
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Explore
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Person
@@ -26,10 +27,10 @@ enum class BottomNavigation (
         route = Destinations.Activity
     ),
     AskAi(
-        selectedIcon = Icons.Default.QuestionAnswer,
-        unselectedIcon = Icons.Default.QuestionAnswer,
-        label = "Chat",
-        route = Destinations.AskAi
+        selectedIcon = Icons.Default.Add,
+        unselectedIcon = Icons.Default.Add,
+        label = "+Habit",
+        route = Destinations.Add
     ),
     Profile(
         selectedIcon = Icons.Default.Person,
