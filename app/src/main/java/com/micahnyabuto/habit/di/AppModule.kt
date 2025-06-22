@@ -3,7 +3,9 @@ package com.micahnyabuto.habit.di
 import androidx.room.Room
 import com.micahnyabuto.habit.core.data.local.HabitDatabase
 import com.micahnyabuto.habit.core.data.repository.HabitRepositoryImpl
+import com.micahnyabuto.habit.features.habit.AddHabitViewModel
 import org.koin.android.ext.koin.androidContext
+import org.koin.core.module.dsl.viewModel
 import org.koin.dsl.module
 
 val appModule = module {
@@ -16,7 +18,14 @@ val appModule = module {
         ).build()
     }
 
-    single { get<HabitDatabase>().habitDao()}
+    single { get<HabitDatabase>().habitDao() }
 
     single { HabitRepositoryImpl(get()) }
+
+    viewModel {
+        AddHabitViewModel(get())
+    }
+
+
+
 }
