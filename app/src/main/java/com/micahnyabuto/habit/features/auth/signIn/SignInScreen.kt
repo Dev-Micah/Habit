@@ -39,6 +39,7 @@ import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.withStyle
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
@@ -102,13 +103,7 @@ fun SignInScreen(
 
             Text(
                 buildAnnotatedString {
-                    append("Welcome back to ")
-                    withStyle(style = SpanStyle(
-                        color = MaterialTheme.colorScheme.primary,
-                        fontWeight = FontWeight.Bold)) {
-                        append("Habit")
-                    }
-                    append("+")
+                    append("Welcome back")
                 },
                 fontSize = 24.sp,
                 fontWeight = FontWeight.Bold
@@ -212,3 +207,8 @@ fun SignInScreen(
 }
 
 
+@Preview(showBackground = true)
+@Composable
+fun SignInScreenPreview() {
+    SignInScreen(navController = NavController(LocalContext.current))
+}
