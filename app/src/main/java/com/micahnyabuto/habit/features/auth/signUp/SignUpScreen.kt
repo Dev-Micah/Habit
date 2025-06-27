@@ -33,9 +33,11 @@ import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.withStyle
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.micahnyabuto.habit.R
 import com.micahnyabuto.habit.core.navigation.Destinations
 
@@ -85,11 +87,7 @@ fun SignUpScreen(
 
             Text(
                 buildAnnotatedString {
-                    append("Welcome to ")
-                    withStyle(style = SpanStyle(color = Color(0xFF00C897), fontWeight = FontWeight.Bold)) {
-                        append("Habit")
-                    }
-                    append("+")
+                    append("Welcome to Habit")
                 },
                 fontSize = 24.sp,
                 fontWeight = FontWeight.Bold
@@ -134,7 +132,7 @@ fun SignUpScreen(
                     .height(45.dp),
                 shape = RoundedCornerShape(4.dp),
                 colors = ButtonColors(
-                    containerColor = Color(0xFF0CBC8B),
+                    containerColor = Color(MaterialTheme.colorScheme.primary.hashCode()),
                     contentColor = Color.White,
                     disabledContainerColor = Color.White,
                     disabledContentColor = Color.White)
@@ -182,6 +180,11 @@ fun SignUpScreen(
             )
         }
     }
+}
+@Preview(showBackground = true)
+@Composable
+fun SignUpScreenPreview() {
+    SignUpScreen(navController = rememberNavController())
 }
 
 
