@@ -52,6 +52,8 @@ class MainActivity : ComponentActivity() {
                     ?: Destinations.Splash::class.qualifiedName.orEmpty()
                 //Do not  Show bottom navigation when
                 val showBottomNavigation = currentRoute !in listOf(
+                    Destinations.SignIn::class.qualifiedName,
+                    Destinations.SignUp::class.qualifiedName,
                     Destinations.Splash::class.qualifiedName,
                     Destinations.Onboard::class.qualifiedName,
 
