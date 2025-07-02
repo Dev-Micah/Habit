@@ -22,7 +22,7 @@ sealed class Destinations {
     object Activity
 
     @Serializable
-    object Add
+    object Habit
 
     @Serializable
     object Profile
