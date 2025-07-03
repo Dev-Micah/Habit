@@ -37,8 +37,10 @@ import androidx.navigation.compose.rememberNavController
 import com.micahnyabuto.habit.core.navigation.AppNavHost
 import com.micahnyabuto.habit.core.navigation.BottomNavigation
 import com.micahnyabuto.habit.core.navigation.Destinations
+import com.micahnyabuto.habit.features.habit.AddHabitViewModel
 import com.micahnyabuto.habit.features.onboard.OnboardingScreen
 import com.micahnyabuto.habit.ui.theme.HabitTheme
+import org.koin.androidx.compose.koinViewModel
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,6 +48,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             HabitTheme {
+                val addHabitViewModel: AddHabitViewModel = koinViewModel()
                 val navController = rememberNavController()
                 val navBackStackEntry by navController.currentBackStackEntryAsState()
                 val currentRoute = navBackStackEntry?.destination?.route
@@ -122,7 +125,8 @@ class MainActivity : ComponentActivity() {
                 ){innerpadding ->
                     AppNavHost(
                         modifier = Modifier.padding(innerpadding),
-                        navController = navController
+                        navController = navController,
+                        viewModel = addHabitViewModel
                     )
                 }
             }
