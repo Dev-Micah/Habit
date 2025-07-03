@@ -21,7 +21,7 @@ class AddHabitViewModel(
         getAllHabits()
     }
 
-    private fun getAllHabits() {
+    fun getAllHabits() {
         viewModelScope.launch {
             habitRepository.allHabits()
                 .onStart {
