@@ -90,13 +90,6 @@ fun SignInScreen(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
 
-            Image(
-                painter = painterResource(id = R.drawable.illustration),
-                contentDescription = null,
-                modifier = Modifier
-                    .height(200.dp)
-                    .fillMaxWidth()
-            )
 
             Spacer(modifier = Modifier.height(24.dp))
 
