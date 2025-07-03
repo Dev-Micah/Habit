@@ -8,5 +8,6 @@ data class HabitEntity(
     @PrimaryKey(autoGenerate = true)
     val id: Int =0,
     val content: String,
+    val frequency: String? = null,
     val createdAt: Long
 )
